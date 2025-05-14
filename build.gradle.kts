@@ -23,7 +23,8 @@ dependencies {
 
     implementation(libs.exposed.core)
     implementation(libs.exposed.jdbc)
-    implementation(libs.h2)
+
+    implementation(libs.sqlite)
 
     implementation(libs.koin.ktor)
     implementation(libs.koin.logger.slf4j)
@@ -33,6 +34,8 @@ dependencies {
     implementation(libs.ktor.server.config.yaml)
 
     implementation(libs.kotlin.notebook)
+
+    implementation(libs.ktor.kotlinx.datetime)
 
     testImplementation(libs.ktor.server.test.host)
     testImplementation(libs.kotlin.test.junit)
