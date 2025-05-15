@@ -8,7 +8,7 @@ object CommitmentTable : Table("commitment") {
 
     val id = integer("id").autoIncrement()
     val investorId = reference("investor_id", InvestorTable.id, onDelete = ReferenceOption.CASCADE)
-    val amount = varchar("amount", MAX_STRING_LENGTH)
+    val amount = long("amount")
     val currency = varchar("currency", MAX_STRING_LENGTH)
     val assetClass = varchar("asset_class", MAX_STRING_LENGTH)
 

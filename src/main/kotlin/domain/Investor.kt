@@ -10,5 +10,6 @@ data class Investor(
     val investoryType: String,
     val country: String,
     val dateAdded: LocalDate,
-    val lastUpdated: LocalDate
+    val lastUpdated: LocalDate,
+    val commitmentTotal: Long
 )

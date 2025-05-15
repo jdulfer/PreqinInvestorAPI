@@ -18,7 +18,7 @@ fun Route.investorRoutes() {
         get("/{investorId}/commitments") {
             val investorId = call.parameters["investorId"]
                 ?: throw NotFoundException("Please provide an investor id")
-            val commitments = investorService.getInvestorCommitments(investorId, null)
+            val commitments = investorService.getInvestorCommitments(investorId)
             call.respond(commitments)
         }
     }

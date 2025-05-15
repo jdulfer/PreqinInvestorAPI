@@ -9,7 +9,7 @@ class InvestorService(
 ) {
     suspend fun getInvestors(): List<Investor> = investorDAO.getInvestors()
 
-    suspend fun getInvestorCommitments(investorId: String, assetClass: String?): List<Commitment> {
+    suspend fun getInvestorCommitments(investorId: String): List<Commitment> {
         val investorInt = try {
             investorId.toInt()
         } catch (e: Exception) {
