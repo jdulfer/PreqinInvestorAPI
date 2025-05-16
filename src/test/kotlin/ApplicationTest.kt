@@ -1,5 +1,6 @@
 package com.jdulfer
 
+import com.jdulfer.config.module
 import io.ktor.client.request.*
 import io.ktor.http.*
 import io.ktor.server.testing.*
@@ -13,7 +14,7 @@ class ApplicationTest {
         application {
             module()
         }
-        client.get("/").apply {
+        client.get("/hello").apply {
             assertEquals(HttpStatusCode.OK, status)
         }
     }

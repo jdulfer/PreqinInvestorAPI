@@ -56,7 +56,7 @@ class JdbcInvestorDAO : InvestorDAO {
             CommitmentTable.selectAll().where { CommitmentTable.investorId eq investorId }.map {
                 Commitment(
                     id = it[CommitmentTable.id],
-                    amount = it[CommitmentTable.amount].toLong(),
+                    amount = it[CommitmentTable.amount],
                     currency = it[CommitmentTable.currency],
                     assetClass = it[CommitmentTable.assetClass]
                 )

@@ -31,7 +31,9 @@ dependencies {
 
     implementation(libs.ktor.server.netty)
     implementation(libs.logback.classic)
+    implementation(libs.ktor.call.logging)
     implementation(libs.ktor.server.config.yaml)
+    implementation(libs.ktor.cors)
 
     implementation(libs.kotlin.notebook)
 

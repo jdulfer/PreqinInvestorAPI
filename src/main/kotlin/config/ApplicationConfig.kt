@@ -5,7 +5,9 @@ import com.jdulfer.routes.helloRoutes
 import com.jdulfer.routes.investorRoutes
 import io.ktor.serialization.kotlinx.json.*
 import io.ktor.server.application.*
+import io.ktor.server.plugins.calllogging.*
 import io.ktor.server.plugins.contentnegotiation.*
+import io.ktor.server.plugins.cors.routing.*
 import io.ktor.server.routing.*
 import org.jetbrains.exposed.sql.Database
 import org.koin.ktor.plugin.Koin
@@ -19,6 +21,12 @@ fun Application.module() {
                 appModule
             )
         )
+    }
+
+    install(CallLogging)
+
+    install(CORS) {
+        anyHost()
     }
 
     install(ContentNegotiation) {
