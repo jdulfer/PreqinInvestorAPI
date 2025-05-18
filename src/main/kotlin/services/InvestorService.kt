@@ -12,7 +12,7 @@ class InvestorService(
     suspend fun getInvestorCommitments(investorId: String): List<Commitment> {
         val investorInt = try {
             investorId.toInt()
-        } catch (e: Exception) {
+        } catch (e: NumberFormatException) {
             throw IllegalArgumentException("Investor id must be a number")
         }
 

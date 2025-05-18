@@ -7,6 +7,9 @@ logback-version = "1.4.14"
 kotlin-notebook-version = "0.15.0"
 kotlinx-datetime-version = "0.6.2"
 sqlite-version = "3.44.1.0"
+h2-version = "2.1.214"
+mockk-version = "1.13.8"
+coroutines-test-version = "1.7.3"
 
 [libraries]
 ktor-server-core = { module = "io.ktor:ktor-server-core", version.ref = "ktor-version" }
@@ -33,6 +36,10 @@ kotlin-test-junit = { module = "org.jetbrains.kotlin:kotlin-test-junit", version
 kotlin-notebook = { module = "org.jetbrains.kotlinx:dataframe", version.ref = "kotlin-notebook-version" }
 
 ktor-kotlinx-datetime = { module = "org.jetbrains.kotlinx:kotlinx-datetime", version.ref = "kotlinx-datetime-version" }
+
+h2-database = { module = "com.h2database:h2", version.ref = "h2-version" }
+mockk = { module = "io.mockk:mockk", version.ref = "mockk-version" }
+kotlinx-coroutines-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "coroutines-test-version" }
 
 [plugins]
 kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin-version" }

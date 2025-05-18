@@ -63,6 +63,8 @@ class JdbcInvestorDAO : InvestorDAO {
             }
         }
 
+        if (commitments.isEmpty()) throw NotFoundException("Could not find commitments for investor $investorId")
+
         return commitments
     }
 }
