@@ -1,43 +1,21 @@
 # PreqinInvestorAPI
 
-This project was created using the [Ktor Project Generator](https://start.ktor.io).
+### Architectural Overview
 
-Here are some useful links to get you started:
+This RESTful API is built off of the Kotlin Ktor framework. It uses SQLite to store `Investor` and `Commitment` tables.
+The data from `data.csv` has been processed by a Kotlin Notebook file (`investor-data-cleaning.ipynb`) which reads the
+data in, separates it into Investor data and Commitment data, and then writes them to their own CSV files. The data has
+then been read into the SQLite DB file labelled `PreqinDB.db`, which is used by the API reads from and provides to the
+front end.
 
-- [Ktor Documentation](https://ktor.io/docs/home.html)
-- [Ktor GitHub page](https://github.com/ktorio/ktor)
-- The [Ktor Slack chat](https://app.slack.com/client/T09229ZC6/C0A974TJ9). You'll need to [request an invite](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up) to join.
+### Running the API
+You can either run the application through the `Application.kt` main function, or with `./gradlew run`.
 
-## Features
+### Resources
 
-Here's a list of features included in this project:
-
-| Name                                                                   | Description                                                                        |
-| ------------------------------------------------------------------------|------------------------------------------------------------------------------------ |
-| [Routing](https://start.ktor.io/p/routing)                             | Provides a structured routing DSL                                                  |
-| [kotlinx.serialization](https://start.ktor.io/p/kotlinx-serialization) | Handles JSON serialization using kotlinx.serialization library                     |
-| [Content Negotiation](https://start.ktor.io/p/content-negotiation)     | Provides automatic content conversion according to Content-Type and Accept headers |
-| [Exposed](https://start.ktor.io/p/exposed)                             | Adds Exposed database to your application                                          |
-| [Koin](https://start.ktor.io/p/koin)                                   | Provides dependency injection                                                      |
-
-## Building & Running
-
-To build or run the project, use one of the following tasks:
-
-| Task                          | Description                                                          |
-| -------------------------------|---------------------------------------------------------------------- |
-| `./gradlew test`              | Run the tests                                                        |
-| `./gradlew build`             | Build everything                                                     |
-| `buildFatJar`                 | Build an executable JAR of the server with all dependencies included |
-| `buildImage`                  | Build the docker image to use with the fat JAR                       |
-| `publishImageToLocalRegistry` | Publish the docker image locally                                     |
-| `run`                         | Run the server                                                       |
-| `runDocker`                   | Run using the local docker image                                     |
-
-If the server starts successfully, you'll see the following output:
-
-```
-2024-12-04 14:32:45.584 [main] INFO  Application - Application started in 0.303 seconds.
-2024-12-04 14:32:45.682 [main] INFO  Application - Responding at http://0.0.0.0:8080
-```
-
+- `GET: /hello`
+    - Returns Hello World. Good to check it's working as intended
+- `GET: /investors`
+    - Returns all the `Investors` and their total commitment amount
+- `GET: /investors/:investorId/commitments`
+    - Returns all the `Commitments` for a particular `inevstorId`
